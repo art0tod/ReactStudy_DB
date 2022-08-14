@@ -1,0 +1,16 @@
+.App {
+  width: 70vw;
+  max-width: 720px;
+  min-width: 400px;
+  margin: 1rem auto;
+
+  font-family: Arial, serif;
+}
+.App .row {
+  display: flex;
+  justify-content: space-between;
+  background: hsl(0 0% 33%);
+  padding: .2rem 1rem;
+  margin: 1rem 0;
+  border-radius: .7rem;
+}

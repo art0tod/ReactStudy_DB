@@ -1,0 +1,28 @@
+.PersonDetails {
+  margin: 1rem 0 1rem 1rem;
+  color: white;
+  background: hsl(0 0% 22%);
+  padding: .8rem;
+  border-radius: .7rem;
+  width: 100%;
+}
+.PersonDetails .PersonImage {
+  width: 60%;
+  border-radius: .7rem;
+}
+.PersonDetails .list {
+  list-style: none;
+  padding: 0;
+}
+.PersonDetails .item {
+  padding: .5rem 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.PersonDetails .term {
+  width: 100%;
+  color: hsl(0 0% 75%);
+  padding-bottom: .5rem;
+}

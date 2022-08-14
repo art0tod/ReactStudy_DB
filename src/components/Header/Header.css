@@ -1,3 +1,21 @@
 .Header {
-
+  background: hsl(0 0% 33%);
+  padding: .2rem 1rem;
+  margin: 1rem 0;
+  border-radius: .7rem;
+  display: block;
+  justify-content: space-between;
+}
+.Header h2 {
+  white-space: nowrap;
+  padding: 0;
+}
+.Header a {
+  text-decoration: none;
+  color: white;
+  padding: .2rem .5rem;
+}
+.Header list{
+  display: flex;
+  justify-content: flex-start;
 }

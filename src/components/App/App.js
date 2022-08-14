@@ -13,12 +13,11 @@ export default class App extends Component {
       <div className={'App'}>
         <Header/>
         <RandomPlanet/>
-
-        <div className={'row md2'}>
-          <div className={'col-md-6'}>
+        <div className={'row'}>
+          <div className={'col'}>
             <ItemList/>
           </div>
-          <div className={'col-md-6'}>
+          <div className={'col'}>
             <PersonDetails/>
           </div>
         </div>

@@ -4,13 +4,13 @@ import './Header.css'
 
 const Header = () => {
   return (
-    <div className={'Header d-flex'}>
+    <div className={'Header'}>
       <h2>
         <a href={'_blank'}>
           Star React DB
         </a>
       </h2>
-      <ul className={'d-flex'}>
+      <ul className={'list'}>
         <a href={'_blank'}>
           People
         </a>

@@ -1,0 +1,19 @@
+.ItemList {
+  background: hsl(0 0% 44%);
+  padding: .3rem;
+  text-decoration: none;
+  list-style: none;
+  border-radius: .7rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ItemList .item {
+  white-space: nowrap;
+  background: hsl(0 0% 22%);
+  color: white;
+  padding: 1rem;
+  border-radius: .7rem;
+  margin: .5rem 0;
+  width: 100%;
+  text-align: center;
+}
