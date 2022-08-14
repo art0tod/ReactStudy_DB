@@ -8,9 +8,10 @@
 }
 .RandomPlanet .PlanetImage {
   display: flex;
-  width: 50%;
-  height: 50%;
+  width: 35%;
+  height: 35%;
   border-radius: .7rem;
+  border: .7rem solid hsl(0 0% 22%);
 }
 .RandomPlanet .list {
   background: hsl(0 0% 22%);
