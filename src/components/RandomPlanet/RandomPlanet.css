@@ -5,13 +5,14 @@
   padding: 1rem 1rem;
   margin: 1rem 0;
   border-radius: .7rem;
+  border-bottom: .4rem solid hsl(0 0% 0% / .3);
 }
 .RandomPlanet .PlanetImage {
   display: flex;
-  width: 35%;
-  height: 35%;
+  width: 37%;
+  height: 37%;
   border-radius: .7rem;
-  border: .7rem solid hsl(0 0% 22%);
+  border: .4rem solid hsl(0 0% 22% / .5);
 }
 .RandomPlanet .list {
   background: hsl(0 0% 22%);
