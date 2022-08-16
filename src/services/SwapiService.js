@@ -11,12 +11,11 @@ export default class SwapiService {
       throw new Error(`Could not fetch ${url}` +
         `, received ${res.status}`)
     }
-
     return await res.json();
   }
   async getAllPeople() {
     const res = await this.gerResource(`/people/`);
-    return  res.results.map(this._transformPlanet);
+    return  res.results.map(this._transformPerson);
   };
   async getAllPlanets() {
     const res = await this.gerResource(`/planets/`);
@@ -24,11 +23,11 @@ export default class SwapiService {
   };
   async getAllStarships() {
     const res = await this.gerResource(`/starships/`);
-    return  res.results.map(this._transformPlanet);
+    return  res.results.map(this._transformStarship);
   };
 
   async getPerson(id) {
-    const person = await this.getPerson(`/people/${id}/`)
+    const person = await this.gerResource(`/people/${id}/`)
     return this._transformPerson(person)
   }
   async getPlanet(id) {
@@ -36,7 +35,7 @@ export default class SwapiService {
     return this._transformPlanet(planet);
   }
   async getStarship(id) {
-    const starship = await this.getStarship(`/starships/${id}/`)
+    const starship = await this.gerResource(`/starships/${id}/`)
     return this._transformStarship(starship)
   }
   _extractID(item) {
@@ -44,7 +43,7 @@ export default class SwapiService {
     return item.url.match(idRegExp)[1]
   }
 
-  _transformPlanet(planet) {
+  _transformPlanet = (planet) => {
     return {
       id: this._extractID(planet),
       name: planet.name,
@@ -53,7 +52,7 @@ export default class SwapiService {
       diameter: planet.diameter
     }
   }
-  _transformPerson(person) {
+  _transformPerson = (person) => {
     return {
       id: this._extractID(person),
       name: person.name,
@@ -62,7 +61,7 @@ export default class SwapiService {
       eyeColor: person.eyeColor
     }
   }
-  _transformStarship(starship) {
+  _transformStarship = (starship) => {
     return {
       id: this._extractID(starship),
       name: starship.name,
@@ -76,9 +75,3 @@ export default class SwapiService {
     }
   }
 }
-
-const swapi = new SwapiService();
-
-swapi.getPlanet().then((planet) => {
-    console.log(planet.name)
-});

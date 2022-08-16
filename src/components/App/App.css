@@ -11,7 +11,6 @@
 }
 .App .row {
   display: block;
-  flex-wrap: wrap;
   justify-content: space-between;
   background: hsl(0 0% 33%);
   padding: .2rem 1rem;
