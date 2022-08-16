@@ -10,7 +10,7 @@ export default class PersonDetails extends Component {
         <img
           alt={'#'}
           className={'PersonImage'}
-          src={"https://starwars-visualguide.com/assets/img/characters/4.jpg"}
+          src={"https://starwars-visualguide.com/assets/img/characters/23.jpg"}
         />
         <div className={'body'}>
           <h4>Person Name 1</h4>

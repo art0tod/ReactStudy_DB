@@ -1,6 +1,5 @@
 .ItemList {
-  background: hsl(0 0% 44%);
-  padding: .7rem 0;
+  padding: 0;
   text-decoration: none;
   list-style: none;
   border-radius: .7rem;
@@ -12,8 +11,7 @@
   white-space: nowrap;
   background: hsl(0 0% 33%);
   color: white;
-  padding: .4rem 1rem;
+  padding: .4rem 0;
   border-bottom:  1px solid hsl(0 0% 44%);
-  border-top:  1px solid hsl(0 0% 44%);
   text-align: left;
 }
