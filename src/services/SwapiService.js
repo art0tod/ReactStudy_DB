@@ -1,5 +1,3 @@
-
-
 export default class SwapiService {
 
   _apiBase = 'https://swapi.dev/api';

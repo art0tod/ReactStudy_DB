@@ -8,6 +8,17 @@ import RandomPlanet from "../RandomPlanet";
 import './App.css'
 
 export default class App extends Component {
+
+  state = {
+    selectedPerson: 1
+  };
+
+  onPersonSelected = (id) => {
+    this.setState({
+       selectedPerson: id
+    })
+  }
+
   render() {
     return (
       <div className={'App'}>
@@ -15,10 +26,11 @@ export default class App extends Component {
         <RandomPlanet/>
         <div className={'row'}>
           <div className={'col'}>
-            <ItemList/>
+            <ItemList
+            onItemSelected={this.onPersonSelected}/>
           </div>
           <div className={'col'}>
-            <PersonDetails/>
+            <PersonDetails personId={this.state.selectedPerson}/>
           </div>
         </div>
       </div>

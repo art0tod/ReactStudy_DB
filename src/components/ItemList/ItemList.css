@@ -3,14 +3,13 @@
   text-decoration: none;
   list-style: none;
   border-radius: .7rem;
-  display: flex;
+  display: block;
   width: 100%;
-  flex-wrap: wrap;
 }
 .ItemList .item {
   white-space: nowrap;
   background: hsl(0 0% 33%);
-  color: hsl(0 0% 100% / .75);;
+  color: hsl(0 0% 100% / .75);
   padding: .4rem;
   margin: .3rem;
   border-bottom:  1px solid hsl(0 0% 44%);

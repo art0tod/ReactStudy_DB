@@ -10,7 +10,7 @@
   font-family: Arial, serif;
 }
 .App .row {
-  display: block;
+  display: flex;
   justify-content: space-between;
   background: hsl(0 0% 33%);
   padding: .2rem 1rem;
