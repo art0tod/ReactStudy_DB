@@ -1,38 +1,40 @@
 import React, { Component } from "react";
 
 import Header from "../Header";
-import ItemList from "../ItemList";
-import PersonDetails from "../PersonDetails";
 import RandomPlanet from "../RandomPlanet";
+import ErrorBtn from "../ErrorBtn";
 
 import './App.css'
+import ErrorIndicator from "../ErrorIndicator";
+import PeoplePage from "../PeoplePage";
 
 export default class App extends Component {
 
   state = {
-    selectedPerson: 1
+    hasError: false
   };
 
-  onPersonSelected = (id) => {
+  componentDidCatch() {
+    console.log('didcatch');
     this.setState({
-       selectedPerson: id
+      hasError: true,
     })
   }
 
   render() {
+
+    if (this.state.hasError) {
+      return <ErrorIndicator />
+    }
+
     return (
       <div className={'App'}>
         <Header/>
+        <ErrorBtn/>
         <RandomPlanet/>
-        <div className={'row'}>
-          <div className={'col'}>
-            <ItemList
-            onItemSelected={this.onPersonSelected}/>
-          </div>
-          <div className={'col'}>
-            <PersonDetails personId={this.state.selectedPerson}/>
-          </div>
-        </div>
+        <PeoplePage/>
+        <PeoplePage/>
+        <PeoplePage/>
       </div>
     );
   };

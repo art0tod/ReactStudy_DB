@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import './PersonDetails.css';
 import SwapiService from "../../services/SwapiService";
+import ErrorBtn from "../ErrorBtn";
 
 export default class PersonDetails extends Component {
 
@@ -69,6 +70,7 @@ export default class PersonDetails extends Component {
             </li>
           </ul>
         </div>
+        <ErrorBtn/>
       </div>
     );
   }
