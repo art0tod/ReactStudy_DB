@@ -14,28 +14,31 @@ export default class SwapiService {
   getAllPeople = async () => {
     const res = await this.gerResource(`/people/`);
     return  res.results.map(this._transformPerson);
+
   };
-  async getAllPlanets() {
+  getAllPlanets = async () => {
     const res = await this.gerResource(`/planets/`);
-    return  res.results.map(this._transformPlanet);
+    return res.results.map(this._transformPlanet);
   };
-  async getAllStarships() {
+  getAllStarships = async () => {
     const res = await this.gerResource(`/starships/`);
     return  res.results.map(this._transformStarship);
   };
 
-  getPerson = (id) => {
+  getPerson = async (id) => {
     const person = await this.gerResource(`/people/${id}/`)
+    console.log(person);
     return this._transformPerson(person)
   }
-  async getPlanet(id) {
+  getPlanet = async (id) => {
     const planet = await this.gerResource(`/planets/${id}/`)
     return this._transformPlanet(planet);
   }
-  async getStarship(id) {
+  getStarship = async (id) => {
     const starship = await this.gerResource(`/starships/${id}/`)
     return this._transformStarship(starship)
   }
+
   _extractID(item) {
     const idRegExp = /\/([0-9]*)\/$/;
     return item.url.match(idRegExp)[1]
@@ -55,8 +58,8 @@ export default class SwapiService {
       id: this._extractID(person),
       name: person.name,
       gender: person.gender,
-      birthYear: person.birthYear,
-      eyeColor: person.eyeColor
+      birthYear: person.birth_year,
+      eyeColor: person.eye_color
     }
   }
   _transformStarship = (starship) => {

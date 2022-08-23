@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
-import './PersonDetails.css';
+import './ItemDetails.css';
 import SwapiService from "../../services/SwapiService";
 import ErrorBtn from "../ErrorBtn";
 
-export default class PersonDetails extends Component {
+export default class ItemDetails extends Component {
 
   swapiService = new SwapiService();
 
     state = {
-      person: null
+      item: null
     };
 
     componentDidMount() {
@@ -39,11 +39,11 @@ export default class PersonDetails extends Component {
 
   render() {
 
-    if (!this.state.person) {
-      return <span>Please select person</span>;
+    if (!this.state.item) {
+      return <div className={'hint'}> Please select</div>;
     }
 
-    const { id, name, gender, birthYear, eyeColor } = this.state.person;
+    const { id, name, gender, birthYear, eyeColor } = this.state.item;
 
     return (
 

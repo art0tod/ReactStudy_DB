@@ -8,7 +8,7 @@ import './App.css'
 import ErrorIndicator from "../ErrorIndicator";
 import PeoplePage from "../PeoplePage";
 import ItemList from "../ItemList";
-import PersonDetails from "../PersonDetails";
+import ItemDetails from "../ItemDetails";
 import SwapiService from "../../services/SwapiService";
 
 export default class App extends Component {
@@ -19,7 +19,7 @@ export default class App extends Component {
     hasError: false
   };
 
-  componentDidCatch() {
+  componentDidCatch(error, errorInfo) {
     console.log('didcatch');
     this.setState({
       hasError: true,
@@ -42,13 +42,27 @@ export default class App extends Component {
           <div className={'col'}>
             <ItemList
               onItemSelected={this.onPersonSelected}
-              getData={this.swapiService.getAllPlanets}/>
+              getData={this.swapiService.getAllPlanets}
+              renderItem={(item) => item.name}/>
           </div>
           <div className={'col'}>
-            <PersonDetails personId={this.state.selectedPerson}/>
+            <ItemDetails personId={this.state.selectedPerson}/>
+          </div>
+        </div>
+
+        <div className={'row'}>
+          <div className={'col'}>
+            <ItemList
+              onItemSelected={this.onPersonSelected}
+              getData={this.swapiService.getAllStarships}
+              renderItem={(item) => item.name}/>
+          </div>
+          <div className={'col'}>
+            <ItemDetails personId={this.state.selectedPerson}/>
           </div>
         </div>
       </div>
+
     );
   };
 };

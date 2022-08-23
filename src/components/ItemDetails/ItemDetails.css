@@ -26,3 +26,7 @@
   color: hsl(0 0% 75%);
   padding-bottom: .5rem;
 }
+.hint {
+  color: hsl(0 0% 88% / .8);
+  margin: auto;
+}
