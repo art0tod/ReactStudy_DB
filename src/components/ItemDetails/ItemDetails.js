@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 
 import './ItemDetails.css';
-import SwapiService from "../../services/SwapiService";
 import ErrorBtn from "../ErrorBtn";
 
 export default class ItemDetails extends Component {
-
-  swapiService = new SwapiService();
 
     state = {
       item: null,
