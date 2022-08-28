@@ -1,8 +1,7 @@
 import React from "react";
+import './Row.css';
 
-import './Row.css'
-
-const Row = ({ left, right }) => {
+const Row = ({left, right}) => {
   return (
     <div className={'row'}>
       <div className={'col'}>
@@ -14,5 +13,4 @@ const Row = ({ left, right }) => {
     </div>
   );
 };
-
 export default Row;

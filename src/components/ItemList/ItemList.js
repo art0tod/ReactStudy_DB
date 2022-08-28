@@ -4,13 +4,11 @@ import './ItemList.css'
 import Spinner from "../Spinner";
 
 export default class ItemList extends Component {
-
   state = {
     itemList: null
   };
 
   componentDidMount() {
-
     const { getData } = this.props;
 
     getData()
@@ -20,11 +18,14 @@ export default class ItemList extends Component {
         });
       });
   }
+  componentDidCatch(error, errorInfo) {
+    debugger;
+  }
 
   renderItems(arr) {
     return arr.map((item) => {
-      const { id } = item
-      const label = this.props.renderItem(item);
+      const { id } = item;
+      const label = this.props.children(item);
 
       return (
         <li className={'item'}

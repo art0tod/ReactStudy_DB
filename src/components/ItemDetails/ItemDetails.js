@@ -9,7 +9,8 @@ export default class ItemDetails extends Component {
   swapiService = new SwapiService();
 
     state = {
-      item: null
+      item: null,
+      image: null
     };
 
     componentDidMount() {
@@ -19,31 +20,35 @@ export default class ItemDetails extends Component {
     componentDidUpdate(prevProps,
                        prevState,
                        snapshot) {
-      if (this.props.personId !== prevProps.personId) {
+      if (this.props.itemId !== prevProps.itemId) {
         this.updatePerson();
       }
     }
 
   updatePerson() {
-      const { personId } = this.props;
-      if (!personId) {
+      const { itemId, getData, getImageUrl } = this.props;
+      if (!itemId) {
         return;
       }
 
-      this.swapiService
-        .getPerson(personId)
-        .then((person) => {
-          this.setState({ person });
+      getData(itemId)
+        .then((item) => {
+          this.setState({
+            item,
+            image: getImageUrl(item)
+          });
         })
     }
 
   render() {
 
+    const { item, image } = this.state;
+
     if (!this.state.item) {
-      return <div className={'hint'}> Please select</div>;
+      return <span>Please select person</span>;
     }
 
-    const { id, name, gender, birthYear, eyeColor } = this.state.item;
+    const { id, name, gender, birthYear, eyeColor } = item;
 
     return (
 
@@ -51,7 +56,7 @@ export default class ItemDetails extends Component {
         <img
           alt={'#'}
           className={'PersonImage'}
-          src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+          src={image}
         />
         <div className={'body'}>
           <h4>{name}</h4>

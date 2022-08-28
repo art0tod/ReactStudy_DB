@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 
 import Header from "../Header";
-import RandomPlanet from "../RandomPlanet";
-import ErrorBtn from "../ErrorBtn";
 
 import './App.css'
 import ErrorIndicator from "../ErrorIndicator";
-import PeoplePage from "../PeoplePage";
-import ItemList from "../ItemList";
+
 import ItemDetails from "../ItemDetails";
 import SwapiService from "../../services/SwapiService";
+import ErrorBoundry from "../ErrorBoundry";
+import Row from "../Row";
 
 export default class App extends Component {
 
@@ -32,37 +31,32 @@ export default class App extends Component {
       return <ErrorIndicator />
     }
 
+    const { getPerson, getStarship, getPersonImage, getStarshipsImage } = this.swapiService;
+
+    const personDetails = (
+      <ItemDetails
+        getData={getPerson}
+        itemId={3}
+        getImageUrl={getPersonImage}/>
+    );
+
+    const starshipDetails = (
+      <ItemDetails
+        getData={getStarship}
+        itemId={5}
+        getImageUrl={getStarshipsImage}/>
+    );
+
     return (
-      <div className={'App'}>
-        <Header/>
-        <ErrorBtn/>
-        <RandomPlanet/>
-        <PeoplePage/>
-        <div className={'row'}>
-          <div className={'col'}>
-            <ItemList
-              onItemSelected={this.onPersonSelected}
-              getData={this.swapiService.getAllPlanets}
-              renderItem={(item) => item.name}/>
-          </div>
-          <div className={'col'}>
-            <ItemDetails personId={this.state.selectedPerson}/>
-          </div>
-        </div>
+      <ErrorBoundry>
+        <div className={'App'}>
+          <Header/>
 
-        <div className={'row'}>
-          <div className={'col'}>
-            <ItemList
-              onItemSelected={this.onPersonSelected}
-              getData={this.swapiService.getAllStarships}
-              renderItem={(item) => item.name}/>
-          </div>
-          <div className={'col'}>
-            <ItemDetails personId={this.state.selectedPerson}/>
-          </div>
+          <Row
+            left={personDetails}
+            right={starshipDetails}/>
         </div>
-      </div>
-
+      </ErrorBoundry>
     );
   };
 };
