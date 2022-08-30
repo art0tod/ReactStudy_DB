@@ -58,7 +58,7 @@ export default class ItemDetails extends Component {
       return <span>Please select person</span>;
     }
 
-    const { id, name, gender, birthYear, eyeColor } = item;
+    const { name } = item;
 
     return (
 
