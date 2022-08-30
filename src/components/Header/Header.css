@@ -22,3 +22,12 @@
   display: flex;
   justify-content: flex-start;
 }
+.Header .HeaderBtn{
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
