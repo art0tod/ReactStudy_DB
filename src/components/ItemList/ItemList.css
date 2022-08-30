@@ -18,4 +18,5 @@
 }
 .ItemList .item:hover {
   filter: brightness(115%);
+  transition: 0s;
 }

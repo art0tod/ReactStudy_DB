@@ -6,9 +6,11 @@ import './App.css'
 import ErrorIndicator from "../ErrorIndicator";
 
 import ItemDetails from "../ItemDetails";
+import { Record } from "../ItemDetails/ItemDetails";
 import SwapiService from "../../services/SwapiService";
 import ErrorBoundry from "../ErrorBoundry";
 import Row from "../Row";
+import ItemList from "../ItemList";
 
 export default class App extends Component {
 
@@ -31,20 +33,31 @@ export default class App extends Component {
       return <ErrorIndicator />
     }
 
-    const { getPerson, getStarship, getPersonImage, getStarshipsImage } = this.swapiService;
+    const { getPerson, getStarship, getPersonImage, getStarshipsImage, getAllPeople, getAllPlanets } = this.swapiService;
 
     const personDetails = (
       <ItemDetails
         getData={getPerson}
         itemId={3}
-        getImageUrl={getPersonImage}/>
+        getImageUrl={getPersonImage}>
+
+        <Record field={'gender'} label={'Gender'} />
+        <Record field={'eyeColor'} label={'Eye Color'} />
+
+      </ItemDetails>
     );
 
     const starshipDetails = (
       <ItemDetails
         getData={getStarship}
         itemId={5}
-        getImageUrl={getStarshipsImage}/>
+        getImageUrl={getStarshipsImage}>
+
+        <Record field={'model'} label={'Model'} />
+        <Record field={'length'} label={'Length'} />
+        <Record field={'crew'} label={'Crew'} />
+
+      </ItemDetails>
     );
 
     return (
@@ -52,9 +65,19 @@ export default class App extends Component {
         <div className={'App'}>
           <Header/>
 
-          <Row
-            left={personDetails}
-            right={starshipDetails}/>
+          <ItemList
+            getData={getAllPeople}
+            onItemSelected={() => {}}>
+
+            { ({ name }) => <span>{ name }</span> }
+          </ItemList>
+          <ItemList
+            getData={getAllPlanets}
+            onItemSelected={() => {}}>
+
+            {({ name }) => <span>{ name }</span>}
+          </ItemList>
+
         </div>
       </ErrorBoundry>
     );

@@ -3,6 +3,19 @@ import React, { Component } from "react";
 import './ItemDetails.css';
 import ErrorBtn from "../ErrorBtn";
 
+const Record = ({ item, field, label }) => {
+  return (
+    <li className={'item'}>
+      <span className={'term'}>{label}</span>
+      <span>{ item[field] }</span>
+    </li>
+  )
+}
+
+export {
+  Record
+}
+
 export default class ItemDetails extends Component {
 
     state = {
@@ -58,18 +71,11 @@ export default class ItemDetails extends Component {
         <div className={'body'}>
           <h4>{name}</h4>
           <ul className={'list'}>
-            <li className={'item'}>
-              <span className={'term'}>Gender:</span>
-              <span>{gender}</span>
-            </li>
-            <li className={'item'}>
-              <span className={'term'}>Birth year:</span>
-              <span>{birthYear}</span>
-            </li>
-            <li className={'item'}>
-              <span className={'term'}>Eyes Color:</span>
-              <span>{eyeColor}</span>
-            </li>
+            {
+              React.Children.map(this.props.children, (child) => {
+                return React.cloneElement(child, { item });
+              })
+            }
           </ul>
         </div>
         <ErrorBtn/>
